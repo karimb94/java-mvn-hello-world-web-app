@@ -6,6 +6,7 @@
 	<artifactId>mvn-hello-world</artifactId>
 	<packaging>war</packaging>
 	<version>1.1-SNAPSHOT</version>
+	<finalName>test-mvn-hello-world-${project.version}-build${build.number}</finalName>
 	<name>mvn-hello-world Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 
@@ -39,7 +40,6 @@
 		</dependency>
 	</dependencies>
 	<build>
-		<finalName>test-mvn-hello-world-${project.version}-build${build.number}</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
