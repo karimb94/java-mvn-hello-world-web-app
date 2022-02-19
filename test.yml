@@ -12,4 +12,4 @@
           url: http://localhost:8082/artifactory/maven-hello-world-repo/com/dev3l/hello_world/mvn-hello-world/1.0-SNAPSHOT-build38/mvn-hello-world-1.0-SNAPSHOT-build38.war
           url_username: admin
           url_password: karimB1994
-          dest: /test.war
+          dest: /var/lib/jenkins/workspace/test.war
