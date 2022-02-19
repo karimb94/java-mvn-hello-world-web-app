@@ -18,4 +18,4 @@
           url: http://localhost:8082/artifactory/maven-hello-world-repo/com/dev3l/hello_world/mvn-hello-world/1.0-SNAPSHOT-build{{ build_number }}/mvn-hello-world-1.0-SNAPSHOT-build{{ build_number }}.war
           url_username: "{{ vault_secrets.artifactory_user }}"
           url_password: "{{ vault_secrets.artifactory_pass }}"
-          dest: /var/lib/jenkins/workspace/test-.war
+          dest: /var/lib/jenkins/workspace/test-build{{ build_number }}.war
