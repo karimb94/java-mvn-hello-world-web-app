@@ -7,6 +7,7 @@
       - name: get creds
         include_vars: 
           file: secrets.yml
+          name: vault_secrets
 
       - name: poc
         debug:
@@ -15,6 +16,6 @@
       - name: test download
         get_url:
           url: http://localhost:8082/artifactory/maven-hello-world-repo/com/dev3l/hello_world/mvn-hello-world/1.0-SNAPSHOT-build{{ build_number }}/mvn-hello-world-1.0-SNAPSHOT-build{{ build_number }}.war
-          url_username: "{{ artifactory_user }}"
-          url_password: "{{ artifactory_pass }}"
+          url_username: "{{ vault_secrets.artifactory_user }}"
+          url_password: "{{ vault_secrets.artifactory_pass }}"
           dest: /var/lib/jenkins/workspace/test-.war
