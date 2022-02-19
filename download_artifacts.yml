@@ -1,0 +1,28 @@
+---
+ - hosts: all
+   connection: local
+   gather_facts: false
+
+   # Artifactory variables
+   vars:
+      artifactory_url: http://localhost:8082/artifactory
+      artifactory_repo: maven-hello-world-repo
+      artifactory_artifact_path: com/dev3l/hello_world/mvn-hello-world/{{ pom_version }}
+      artifactory_artifact_name: "{{ pom_version }}.war"
+
+   pre_tasks: 
+
+      # load secrets
+      - name: Get creds
+        include_vars: 
+          file: secrets.yml
+          name: vault_secrets
+
+   tasks: 
+      # Get Artifact from artifactory
+      - name: Download Artifacts
+        get_url:
+          url: "{{ artifactory_url }}/{{ artifactory_repo }}/{{ artifactory_artifact_path }}/{{ artifactory_artifact_name }}"
+          url_username: "{{ vault_secrets.artifactory_user }}"
+          url_password: "{{ vault_secrets.artifactory_pass }}"
+          dest: /var/lib/jenkins/workspace/{{ artifactory_artifact_name }}
