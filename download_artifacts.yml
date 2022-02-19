@@ -7,8 +7,8 @@
    vars:
       artifactory_url: http://localhost:8082/artifactory
       artifactory_repo: maven-hello-world-repo
-      artifactory_artifact_path: com/dev3l/hello_world/mvn-hello-world/{{ pom_version }}
-      artifactory_artifact_name: "{{ pom_version }}.war"
+      artifactory_artifact_path: com/dev3l/hello_world/mvn-hello-world/1.0-SNAPSHOT-build{{ build_number }}
+      artifactory_artifact_name: 1.0-SNAPSHOT-build{{ build_number }}.war
 
    pre_tasks: 
 
