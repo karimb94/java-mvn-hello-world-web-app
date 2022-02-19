@@ -19,6 +19,7 @@
           name: vault_secrets
 
    tasks: 
+   
       # Get Artifact from artifactory
       - name: Download Artifacts
         get_url:
