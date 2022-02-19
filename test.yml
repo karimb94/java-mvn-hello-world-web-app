@@ -1,10 +1,12 @@
 ---
  - hosts: all
    connection: local
+   gather_facts: false
 
    tasks: 
       - name: get creds
-        include_vars: secrets.yml
+        include_vars: 
+          file: secrets.yml
 
       - name: poc
         debug:
